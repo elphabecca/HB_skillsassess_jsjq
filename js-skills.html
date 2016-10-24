@@ -98,7 +98,15 @@
 
 <script>
   "use strict";
-  // code here for above problem
+  
+  var ex1Button = document.getElementById('popup-alert-button');
+
+  function showMePop(evt){
+    alert("The happiest darn pop up you've ever seen!");
+    console.dir(evt);
+  }
+
+  ex1Button.addEventListener('click', showMePop);
 </script>
 
 
@@ -117,7 +125,17 @@
 
 <script>
   "use strict";
-  // code here for above-problem
+
+  var goodbyeNow = document.getElementById('message-to-change');
+  var ex2Button = document.getElementById('change-hello-to-goodbye-button');
+
+  function helloGoodbye(evt) {
+    goodbyeNow.innerHTML = "goodbye";
+    console.dir(evt);
+  }
+
+  ex2Button.addEventListener('click', helloGoodbye);  
+
 </script>
 
 <div class="hint">
@@ -147,7 +165,17 @@
 
 <script>
   "use strict";
-  // code here for above problem
+  
+  var ex3Triggers = document.getElementById('prevent-form-submission-form');
+
+  function preventSubmit(evt) {
+    evt.preventDefault();
+    alert('Nope nope nope.');
+    console.dir(evt);
+  }
+
+  ex3Triggers.addEventListener('click', preventSubmit);
+
 </script>
 
 <div class="hint">
@@ -179,22 +207,25 @@
 <script>
   "use strict";
 
+ var button = document.getElementById('reverse-string-button');
+
 //  Here's a stub of a function you can use!
+ function reverseString(evt) {
+   var msg = prompt("eg: Porcupines are cute");
+   var newMsg = '';
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
+   for (var i = msg.length -1; i >= 0; i--) {
+    newMsg += msg[i];
+    }
 
-// Here's a stub of event stuff you could use
-//
+  console.dir(evt);
+  return alert(newMsg);
+  }
 
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
+button.addEventListener('click', reverseString);
+
+// I probably went a little overboard in this one...I feel like I just had to reverse the string instead of reversing a prompt, but I thought this was cooler.
+
 </script>
 
 
@@ -217,9 +248,22 @@
   <input type="button" class="tricky-to-find" value="Pop-Up Please!">
 </fieldset>
 
+<script src='http://code.jquery.com/jquery.js'></script>
+
 <script>
   "use strict";
+
   // code here for above problem
+
+  function alertUp(evt) {
+    alert("badger badger badger badger");
+    console.dir(evt);
+  }
+
+  $('.tricky-to-find').on('click',alertUp);
+
+  // I didn't put the jquery script in any more purposefully after this exercise b/c it's all in the same namespace.
+
 </script>
 
 <div class="hint">
@@ -247,7 +291,14 @@
 
 <script>
   "use strict";
-  // put your code here
+
+  function changeDogz(evt){
+    $('#kittenz-rule').attr('src', 'https://c1.staticflickr.com/9/8195/8117508130_0cdda6b510_b.jpg');
+    console.dir(evt);
+  }
+
+  $('#kittenz-rule').on('dblclick', changeDogz);
+  
 </script>
 
 <div class="hint">
@@ -281,7 +332,18 @@
 
 <script>
   "use strict";
+
   // put your code here
+
+  function showPorc(evt) {
+    setTimeout(function() {
+      $('#cute-porcupine-image').fadeIn(5000)
+    }, 1000);
+    console.dir(evt);
+  }
+
+  $('#make-a-porcupine').on('click', showPorc);
+
 </script>
 
 <div class="hint">
@@ -326,6 +388,16 @@
 <script>
   "use strict";
   // put your code here
+
+  function agreeFood(evt) {
+    evt.preventDefault();
+    var faveFoodInput = $('#favorite-food-input').val();
+    $('#agreeable-text').html("No way!  I like " + faveFoodInput + ", too!!!")
+    console.dir(evt);
+  }
+
+  $('#agreeable-form').on('submit', agreeFood);
+
 </script>
 
 <div class="hint">
